@@ -1,0 +1,22 @@
+{% extends 'sse_app/index.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="titulo-pag">
+        Selección de carrera
+    </div>
+    <br>
+    <form method="POST" action="{% url 'sse_app:seleccion_carrera'%}">
+        <div class="form-group row">
+            <div class="col">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+            
+                {% buttons %}
+                <button class="btn btn-outline-info" type="submit", name="guardar">Guardar</button>
+                {% endbuttons %}
+            </div>
+        
+    </form>
+{% endblock %}

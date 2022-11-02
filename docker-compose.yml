@@ -1,0 +1,41 @@
+version: "3.8"
+
+services:
+  sse:
+    build: ./seguimiento_egresados
+    container_name: sse
+    env_file: 
+      - .env
+    environment: 
+      PATH_PREFIX: sse
+    command: gunicorn seguimiento_egresados.wsgi:application --bind 0.0.0.0:8080
+    volumes: 
+      - ./seguimiento_egresados:/seguimiento_egresados
+    depends_on: 
+      - mysqldb
+    links: 
+      - mysqldb:mysqldb
+
+  mysqldb:
+    image: mysql:8.0.26
+    container_name: mysqldb
+    env_file: 
+      - bd.env
+    volumes: 
+      - ./control_egresados.sql:/docker-entrypoint-initdb.d/start.sql
+      - ./seguimiento_egresados/data:/var/lib/mysql
+    ports: 
+      - "3306:3306"
+
+  nginx_sse:
+    image: nginx
+    restart: always
+    volumes:
+      - ./seguimiento_egresados/nginx/templates:/etc/nginx/templates
+      - ./seguimiento_egresados/static:/static
+    depends_on:
+      - sse
+    ports:
+      - 8080:80
+    environment:
+      PATH_PREFIX: sse

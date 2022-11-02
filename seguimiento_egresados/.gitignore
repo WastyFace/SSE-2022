@@ -1,0 +1,5 @@
+.env
+
+#Volumen de la BD
+data/*
+!data/.gitkeep

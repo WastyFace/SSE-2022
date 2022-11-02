@@ -1,0 +1,36 @@
+{% extends 'sse_app/index.html' %}
+
+{% load bootstrap4 %}
+
+{% block content %}
+    <div class="titulo-pag">
+        Empleo posterior al egreso
+    </div>
+    <br>
+    <div style="text-align: justify;">
+        <div class="text-bold">Nos interesa conocer con mayor detalle las características de su empleo inmediatamente después de su egreso de la licenciatura, atendiendo a dos criterios:</div>
+            <ol>
+                <li>Que haya sido un trabajo con duración mínima de tres meses.</li>
+                <li>Si tuvo dos o más trabajos simultáneamente, indique aquél al cual le dedicó la mayor parte de su tiempo.</li>
+            </ol>
+            <div class="text-bold">En caso de no cumplir con las condiciones, favor de responder las primeras dos preguntas y pase a la siguiente sección.</div>
+    </div>
+    <form method="POST" action="{% url 'sse_app:empleo_inmediato'%}">
+        <div class="form-group row">
+            <div class="col">
+                {% csrf_token %}
+                {% bootstrap_form form %}
+                {% if form.sector_economico%}
+                    <div class="text-bold">
+                        NOTA: Si trabaja en los gobiernos (federal, estatal o municipal) en las Secretarias de Salud y Educación se 
+                        debe clasificar en Salud y/o en Educación respectivamente, mientras que el resto de las oficinas gubernamentales 
+                        se clasifican en Servicios de Gobierno.
+                    </div>
+                {% endif %}
+                {% buttons %}
+                <button class="btn btn-outline-info" type="submit", name="guardar">Guardar</button>
+                {% endbuttons %}
+            </div>
+        
+    </form>
+{% endblock %}
