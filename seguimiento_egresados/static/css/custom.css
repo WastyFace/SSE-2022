@@ -125,6 +125,7 @@ body {
     padding-left: 12rem;
     padding-right: 12rem;
     color: #666;
+    justify-content: center;
 }
 
 .uv-navbar {
@@ -138,6 +139,7 @@ body {
 
 .titulo-logout {
     font-size: 45px;
+    text-align: center;
 }
 
 .nav-minwindow {
@@ -157,6 +159,15 @@ body {
 
 .titulo-pag {
     font-size: 40px;
+}
+
+.subtitulo-pag {
+    font-size: 30px;
+}
+
+.aviso {
+    font-size: 15px;
+    color: red;
 }
 
 .nav-login:hover {
