@@ -9,6 +9,9 @@ from sse_app.models import Alumno
 class CustomLoginView(LoginView):
     authentication_form = CustomAuthenticationForm
 
+class CustomLoginAdminView(LoginView):
+    authentication_form = CustomAuthenticationForm
+
 def registro(request):
     if request.method == 'POST':
         form = RegistroUsuarioForm(request.POST)
@@ -33,3 +36,6 @@ def registro(request):
 
 def aviso_privacidad(request):
     return render(request, 'accounts/aviso_privacidad.html')
+
+def login_coordinador(request):
+    return render(request, 'accounts/login_coordinador.html')

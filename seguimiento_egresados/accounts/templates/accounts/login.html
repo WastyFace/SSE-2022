@@ -28,6 +28,9 @@
                         <button class="btn submit-button btn-block" type="submit", name="guardar">Iniciar sesión</button>
                         {% endbuttons %}
                         <div class="subtitulo-principal">
+                            <a href="{% url 'accounts:login_coordinador'%}">Ingresar como coordinador</a>
+                        </div>
+                        <div class="subtitulo-principal">
                             <a href="{% url 'accounts:registro'%}">Registrar egresado</a>
                         </div>
                         <div class="subtitulo-principal">

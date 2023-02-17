@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'accounts.apps.AccountsConfig',
     'bootstrap4',
     'crispy_forms',
+    'coordinacion'
 ]
 
 MIDDLEWARE = [
