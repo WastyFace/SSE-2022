@@ -23,5 +23,5 @@ urlpatterns = [
     path('%sadmin/' % settings.PATH_PREFIX, admin.site.urls, name='admin'),
     path('', include(('accounts.urls','accounts'), namespace='accounts')),
     path('', include(('sse_app.urls','sse_app'), namespace='sse_app')),
-    path('', include('coordinacion.urls'))
+    path('', include(('admin_accounts.urls'), namespace='admin_accounts'))
 ]

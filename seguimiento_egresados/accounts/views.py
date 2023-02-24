@@ -36,6 +36,3 @@ def registro(request):
 
 def aviso_privacidad(request):
     return render(request, 'accounts/aviso_privacidad.html')
-
-def login_coordinador(request):
-    return render(request, 'accounts/login_coordinador.html')

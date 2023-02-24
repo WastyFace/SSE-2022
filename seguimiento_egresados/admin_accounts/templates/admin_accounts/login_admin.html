@@ -1,4 +1,4 @@
-{% extends 'accounts/index.html' %}
+{% extends 'admin_accounts/index.html' %}
 {% load crispy_forms_tags %}
 {% load bootstrap4 %}
 {% load static %}
@@ -11,9 +11,9 @@
             <img src="{% static 'assets/img/logo_sse.png' %}" width="360px" height="343px">
         </div>
         <div class="col-6 my-5 center-middle form-block">
-            <form method="POST" action="{% url 'accounts:login'%}">
+            <form method="POST" action="{% url 'admin_accounts:login_admin'%}">
                 <div class="titulo-principal" width="50">
-                    Seguimiento de Egresados
+                    Coordinación de Seguimiento de Egresados
                 </div>
                 <div class="subtitulo-principal" width="50">
                     Facultad de Estadística e Informática
@@ -28,13 +28,7 @@
                         <button class="btn submit-button btn-block" type="submit", name="guardar">Iniciar sesión</button>
                         {% endbuttons %}
                         <div class="subtitulo-principal">
-                            <a href="{% url 'admin_accounts:login_admin'%}">Iniciar sesión como coordinador</a>
-                        </div>
-                        <div class="subtitulo-principal">
-                            <a href="{% url 'accounts:registro'%}">Registrar egresado</a>
-                        </div>
-                        <div class="subtitulo-principal">
-                            <a href="{% url 'accounts:aviso_privacidad'%}">Aviso de Privacidad</a>
+                            <a href="{% url 'admin_accounts:aviso_privacidad'%}">Aviso de Privacidad</a>
                         </div>
                     </div>
                 </div>

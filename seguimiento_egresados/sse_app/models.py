@@ -319,8 +319,15 @@ class Alumno(models.Model):
     codigo_postal = models.CharField(max_length=5, blank=True, null=True, validators=[only_postal_code_mx])
     id_estado = models.ForeignKey('Estados', models.DO_NOTHING, db_column='id_estado', blank=True, null=True)
     id_municipio = models.ForeignKey('Municipios', models.DO_NOTHING, db_column='id_municipio', blank=True, null=True)
-    
 
+class Coordinador(models.Model):
+    #id_coordinador = models.IntegerField(primary_key=True)
+    matricula = models.CharField(max_length=10, validators=[alphanumeric])
+    nombre = models.CharField(max_length=45, blank=True, null=True)
+    apellido_paterno = models.CharField(max_length=45, blank=True, null=True)
+    apellido_materno = models.CharField(max_length=45, blank=True, null=True)
+    correo = models.CharField(max_length=45, blank=True, null=True, validators=[only_email])
+    correo_uv = models.CharField(max_length=45, blank=True, null=True, validators=[only_email])
 
 class SeleccionCarrera(models.Model):
     #id_seleccion_carrera = models.IntegerField(primary_key=True)
